@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dual Language — Treadwell Elementary School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .stat-band{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:-40px;position:relative;z-index:5;}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px 20px;text-align:center;box-shadow:var(--shadow-sm);}
+  .stat .n{font-family:var(--display);font-weight:600;font-size:34px;color:var(--blue);line-height:1;}
+  .stat .l{font-size:13.5px;color:var(--muted);font-weight:700;margin-top:8px;}
+  @media(max-width:760px){.stat-band{grid-template-columns:1fr 1fr;}}
+
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
+  .feature.solo{grid-template-columns:1fr;max-width:760px;}
+  .feature h2{font-size:clamp(24px,3vw,34px);color:var(--blue);}
+  .feature p{color:var(--muted);font-size:17px;margin-top:14px;}
+  .feature img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow-md);display:block;}
+  figure{margin:0;}
+  figure figcaption{font-size:13px;color:var(--faint);margin-top:8px;font-weight:700;}
+  @media(max-width:760px){.feature{grid-template-columns:1fr;gap:26px;}}
+
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+  @media(max-width:680px){.twocol{grid-template-columns:1fr;gap:22px;}}
+  .mini h3{font-size:22px;color:var(--blue);}
+  .mini p{color:var(--muted);font-size:16px;margin-top:10px;}
+
+  .model{background:var(--navy);color:#fff;border-radius:var(--radius-lg);padding:42px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+  .model h2{color:#fff;font-size:30px;}
+  .model p{color:#cfc9c9;font-size:16.5px;margin-top:12px;}
+  .ladder{display:flex;flex-direction:column;gap:10px;}
+  .rung{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px 16px;}
+  .rung .g{font-family:var(--display);font-weight:600;font-size:14px;color:var(--gold);width:78px;flex:none;}
+  .rung .bars{flex:1;display:flex;height:18px;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.18);}
+  .rung .es{background:#e7b13c;}
+  .rung .en{background:#c8102e;}
+  .rung .pct{font-size:12px;color:#e2dcdc;width:120px;flex:none;text-align:right;}
+  .model .legend{display:flex;gap:18px;margin-top:16px;font-size:13px;}
+  .model .legend span{display:flex;align-items:center;gap:7px;}
+  .model .legend i{width:14px;height:14px;border-radius:4px;display:inline-block;}
+  @media(max-width:680px){.model{grid-template-columns:1fr;gap:26px;padding:28px;}}
+
+  .apply{background:linear-gradient(150deg,var(--gold-soft),#fff);border:1px solid var(--border);border-radius:var(--radius-lg);padding:42px;display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:center;}
+  .apply h2{font-size:30px;}
+  .apply p{color:var(--muted);font-size:16.5px;margin-top:12px;}
+  .apply .date{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow-sm);}
+  .apply .date .lbl{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--gold-deep);}
+  .apply .date .big{font-family:var(--display);font-weight:600;font-size:24px;color:var(--navy);line-height:1.1;margin-top:4px;}
+  .apply .note{font-size:13px;color:var(--faint);margin-top:14px;}
+  @media(max-width:680px){.apply{grid-template-columns:1fr;gap:24px;padding:28px;}}
+</style>
+</head>
+<body data-page="parents">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a> <span>›</span> <a href="parents-students.html">Parents &amp; Students</a> <span>›</span> Dual Language</div>
+    <h1>Dual Language</h1>
+    <p class="lede">Treadwell is home to West Tennessee's only K–5 Spanish-English Dual Language Immersion Program.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="stat-band">
+    <div class="stat"><div class="n">750+</div><div class="l">PreK–5th students</div></div>
+    <div class="stat"><div class="n">200</div><div class="l">In Dual Language</div></div>
+    <div class="stat"><div class="n">90/10</div><div class="l">Program model</div></div>
+    <div class="stat"><div class="n">K–5</div><div class="l">Spanish &amp; English</div></div>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap twocol">
+    <div class="mini">
+      <h3>An MSCS Optional School</h3>
+      <p>Treadwell is home to over 750 PreK–5th Grade students; 200 are in the Dual Language Program. Shelby County students may apply for and attend Treadwell as part of the Optional Program even if their home address is outside the zone for TES.</p>
+    </div>
+    <div class="mini">
+      <h3>Students begin the program in kindergarten</h3>
+      <p>A Spanish/English foundation for biliteracy begins in kindergarten. Each student must maintain satisfactory grades, conduct, and attendance to continue in the program each school year.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap feature">
+    <div>
+      <div class="eyebrow">Why Dual Language</div>
+      <h2>Bilingualism &amp; Biliteracy + Social Competence + Academic Achievement</h2>
+      <p>Dual Language Immersion provides an educational foundation of literacy and communication skills in two languages, incorporating multicultural views into grade-level curriculum and academic expectations.</p>
+    </div>
+    <figure>
+      <img src="img-kids-reading.png" alt="Treadwell students reading together outdoors">
+      <figcaption>Treadwell students reading together</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <div class="model">
+      <div>
+        <span class="tag tag-gold">📊 The 90/10 Program Model</span>
+        <h2 style="margin-top:14px">More Spanish early, balancing over time</h2>
+        <p>Beginning in Kindergarten, core content is taught in a combination of English and Spanish. Instructional percentages shift by 10% each year.</p>
+        <div class="legend"><span><i style="background:#e7b13c"></i>Spanish</span><span><i style="background:#c8102e"></i>English</span></div>
+      </div>
+      <div class="ladder">
+        <div class="rung"><span class="g">Kinder</span><span class="bars"><span class="es" style="width:90%"></span><span class="en" style="width:10%"></span></span><span class="pct">90% ES / 10% EN</span></div>
+        <div class="rung"><span class="g">1st Grade</span><span class="bars"><span class="es" style="width:80%"></span><span class="en" style="width:20%"></span></span><span class="pct">80% ES / 20% EN</span></div>
+        <div class="rung"><span class="g">2nd Grade</span><span class="bars"><span class="es" style="width:70%"></span><span class="en" style="width:30%"></span></span><span class="pct">70% ES / 30% EN</span></div>
+        <div class="rung"><span class="g">3rd Grade</span><span class="bars"><span class="es" style="width:60%"></span><span class="en" style="width:40%"></span></span><span class="pct">60% ES / 40% EN</span></div>
+        <div class="rung"><span class="g">4th–5th</span><span class="bars"><span class="es" style="width:50%"></span><span class="en" style="width:50%"></span></span><span class="pct">50% ES / 50% EN</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap feature">
+    <figure>
+      <img src="img-dl-classroom.png" alt="A bilingual teacher with Treadwell dual language students">
+      <figcaption>A bilingual Treadwell classroom</figcaption>
+    </figure>
+    <div>
+      <div class="twocol" style="gap:28px">
+        <div class="mini">
+          <h3>Bilingual teachers and staff</h3>
+          <p>All Dual Language classroom teachers and many of our school support staff are bilingual in Spanish and English and represent a variety of Spanish-speaking countries.</p>
+        </div>
+        <div class="mini">
+          <h3>Balanced 50/50 home language base</h3>
+          <p>In each dual language classroom, students are both language models and language learners at any point in the day — all moving toward emerging bilingualism.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <div class="apply">
+      <div>
+        <span class="tag tag-gold">📝 Application Process</span>
+        <h2 style="margin-top:14px">Join the Dual Language Program</h2>
+        <p>Interested in our Spanish-English Dual Language Immersion Program for your incoming Kindergarten student? Applications for our DL Optional Program open soon.</p>
+        <a class="btn btn-gold" style="margin-top:20px" href="https://www.scsk12.org/optional/" target="_blank" rel="noopener">Apply online at scsk12.org/optional ↗</a>
+        <p class="note"><strong>Note:</strong> General MSCS kindergarten registration is a separate process from the Optional Program application. See the district website for general registration information.</p>
+      </div>
+      <div class="date">
+        <div class="lbl">Applications open</div>
+        <div class="big">Tuesday, January 27, 2026 · 10:00 a.m.</div>
+        <a class="btn btn-ghost" style="margin-top:16px;width:100%;justify-content:center" href="https://www.scsk12.org/registration" target="_blank" rel="noopener">General registration ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-mount"></div>
+<script src="site.js"></script>
+<script src="chatbot.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>

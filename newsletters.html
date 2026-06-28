@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Class Newsletters — Treadwell Elementary School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .grade-tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:18px;}
+  .gtab{background:var(--surface);border:1.5px solid var(--border-strong);color:var(--navy);font-family:var(--display);font-weight:600;font-size:15px;padding:10px 18px;border-radius:12px;cursor:pointer;transition:all .14s;}
+  .gtab:hover{border-color:var(--gold);}
+  .gtab.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:var(--shadow-sm);}
+  .teacher-row{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:30px;}
+  .tchip{display:flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--border);border-radius:999px;padding:6px 15px 6px 6px;cursor:pointer;transition:all .14s;}
+  .tchip:hover{border-color:var(--gold);}
+  .tchip.active{border-color:var(--navy);background:var(--sky);box-shadow:var(--shadow-sm);}
+  .tchip .av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-weight:600;font-size:13px;flex:none;}
+  .tchip .tn{font-weight:800;font-size:14px;color:var(--ink);}
+  .tchip .tr{font-size:11.5px;color:var(--muted);}
+
+  .news{padding:0;overflow:hidden;}
+  .news-hd{padding:30px 34px;background:linear-gradient(150deg,var(--navy),var(--navy-deep));color:#fff;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-end;}
+  .news-hd .av{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-weight:600;font-size:24px;flex:none;border:2px solid rgba(255,255,255,.25);}
+  .news-hd .who{display:flex;gap:16px;align-items:center;}
+  .news-hd h2{color:#fff;font-size:25px;}
+  .news-hd .sub{color:#bcd2ee;font-size:14px;margin-top:2px;}
+  .news-hd .wk{text-align:right;}
+  .news-hd .wk .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:800;}
+  .news-hd .wk .val{font-family:var(--display);font-weight:600;font-size:18px;}
+  .news-bd{padding:32px 34px;display:grid;grid-template-columns:1.4fr 1fr;gap:36px;}
+  @media(max-width:840px){.news-bd{grid-template-columns:1fr;gap:28px;}.news-hd{flex-direction:column;align-items:flex-start;}.news-hd .wk{text-align:left;}}
+  .block-title{font-family:var(--display);font-weight:600;font-size:19px;color:var(--navy);display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .block-title .ic{width:30px;height:30px;border-radius:9px;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:16px;}
+  .learn{display:flex;flex-direction:column;gap:12px;margin-bottom:30px;}
+  .learn-row{display:flex;gap:14px;padding:13px 16px;background:var(--sky);border-radius:12px;}
+  .learn-row .subj{font-weight:800;color:var(--navy);width:96px;flex:none;font-size:14px;}
+  .learn-row .desc{font-size:14.5px;color:var(--ink);}
+  table.hw{width:100%;border-collapse:collapse;}
+  table.hw th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--gold-deep);padding:0 0 8px;border-bottom:2px solid var(--gold-soft);}
+  table.hw td{padding:12px 8px 12px 0;border-bottom:1px solid var(--border);font-size:14.5px;vertical-align:top;}
+  table.hw td.day{font-family:var(--display);font-weight:600;color:var(--navy);width:64px;}
+  .side .card{padding:20px;margin-bottom:18px;}
+  .reminders{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:11px;}
+  .reminders li{display:flex;gap:10px;font-size:14.5px;align-items:flex-start;}
+  .reminders li::before{content:"📌";flex:none;}
+  .specials{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .specials div{background:var(--sky);border-radius:9px;padding:9px 11px;font-size:13px;}
+  .specials b{display:block;color:var(--navy);font-size:13.5px;}
+  .contact-box{background:var(--gold-soft);border-radius:14px;padding:18px;}
+  .contact-box .em{font-weight:800;color:var(--blue);font-size:14px;word-break:break-all;}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
+  @media print{.site-header,.topbar,.site-footer,.cbot-fab,.cbot-panel,.grade-tabs,.teacher-row,.actions,.page-hero .lede{display:none!important;}body{background:#fff;}.news{box-shadow:none;}}
+</style>
+</head>
+<body data-page="newsletters">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a> <span>›</span> Class Newsletters</div>
+    <h1>Weekly Class Newsletters</h1>
+    <p class="lede">This week's learning, homework, and reminders — straight from your child's teacher. Pick a grade, then choose your teacher.</p>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <div class="grade-tabs" id="grade-tabs"></div>
+    <div class="teacher-row" id="teacher-row"></div>
+    <div class="card news" id="news"></div>
+    <div class="actions">
+      <button class="btn btn-gold" onclick="window.print()">🖨️ Print newsletter</button>
+      <a class="btn btn-ghost" href="supply-list.html">View supply list →</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-mount"></div>
+<script src="site.js"></script>
+<script src="chatbot.js"></script>
+<script>
+const PALETTE=["#16335c","#2a6cb0","#3f9a6d","#d9981f","#e3674f","#7b5ea7","#0f7a8c","#b8536b"];
+function colorFor(n){let s=0;for(const c of n)s+=c.charCodeAt(0);return PALETTE[s%PALETTE.length];}
+function initials(n){return n.replace(/[^A-Za-z ]/g,"").split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join("").toUpperCase();}
+function email(n){const p=n.replace(/(Dr|Mr|Mrs|Ms)\.?\s+/i,"").split(/\s+/);return `${p[p.length-1].toLowerCase()}${(p[0]||" ")[0].toLowerCase()}@scsk12.org`;}
+
+const WEEK_OF="August 18–22, 2025";
+const GRADES={
+ "Pre-K":{teachers:[["Ms. Nora Whitfield","Room 101"],["Ms. Erica Mason","Room 102"]],
+   learn:[["Letters","Letter of the week: <b>Mm</b> — sorting objects that begin with /m/"],["Numbers","Counting 1–10 and one-to-one matching with manipulatives"],["Theme","All About Me — family, feelings, and friends"],["Motor","Scissor skills and tracing curved lines"]],
+   hw:[["Mon","Practice writing your first name with a grown-up."],["Tue","Find 3 objects at home that start with M."],["Wed","Count the stairs/steps you climb today."],["Thu","Draw a picture of your family to share."]],
+   reminders:["Bring a labeled water bottle daily","Nap mats go home Friday to be washed","Library is on Wednesday"]},
+ "Kindergarten":{teachers:[["Ms. Brittany Cole","Room 110"],["Ms. Felicia Grant","Room 111"],["Ms. Hannah Lee","Room 112"]],
+   learn:[["Reading","Sight words: <b>the, and, is, a</b> — building decodable sentences"],["Math","Numbers to 20; comparing more & fewer"],["Writing","Drawing + labeling with beginning sounds"],["Science","Living vs. non-living things"]],
+   hw:[["Mon","Read a picture book together for 10 minutes."],["Tue","Flashcard sight words: the, and, is, a."],["Wed","Count objects to 20 around the house."],["Thu","Sort 5 items as living or non-living."]],
+   reminders:["Sight-word ring in folder nightly","Library books due Wednesday","Snack should be peanut-free"]},
+ "1st Grade":{teachers:[["Ms. Olivia Brooks","Room 120"],["Mr. Samuel Reyes","Room 121"],["Ms. Karen Tate","Room 122"]],
+   learn:[["Reading","Short-vowel word families; retelling beginning–middle–end"],["Math","Addition within 20 using number lines"],["Writing","Narrative writing — small moments"],["Social St.","Maps & our community helpers"]],
+   hw:[["Mon","Read 15 min + log it in the reading journal."],["Tue","Math worksheet: addition within 20."],["Wed","Write 2 sentences about your weekend."],["Thu","Study spelling words for Friday's check."]],
+   reminders:["Reading log due Friday","Spelling check every Friday","Return signed Wednesday folder"]},
+ "2nd Grade":{teachers:[["Ms. Monica Flores","Room 130"],["Mr. Derrick Hale","Room 131"],["Ms. Ashley Kim","Room 132"]],
+   learn:[["Reading","Main idea & key details in nonfiction"],["Math","Two-digit addition with regrouping"],["Writing","Opinion writing with reasons"],["Science","Habitats & animal needs"]],
+   hw:[["Mon","Read 20 min; jot the main idea."],["Tue","Math: 2-digit addition page 14."],["Wed","Write your opinion: best class pet?"],["Thu","Study spelling + math facts."]],
+   reminders:["Planner initialed nightly","Library Thursday","Habitat project info coming home Monday"]},
+ "3rd Grade":{teachers:[["Ms. Vanessa Cross","Room 140"],["Mr. Brian Mosley","Room 141"],["Ms. Tina Powell","Room 142"]],
+   learn:[["Reading","Character traits & text evidence"],["Math","Intro to multiplication (0,1,2,5,10)"],["Writing","Paragraphs with topic + closing"],["Science","Forces & motion investigations"]],
+   hw:[["Mon","Read 20 min; name 2 character traits."],["Tue","Multiplication facts ×2 and ×5."],["Wed","Write one strong paragraph."],["Thu","Vocabulary quiz study; ×10 facts."]],
+   reminders:["Multiplication quiz Friday","Bring planner daily","Field-trip form due next week"]},
+ "4th Grade":{teachers:[["Mr. Jerome Fields","Room 150"],["Ms. Rachel Combs","Room 151"],["Ms. Priya Nair","Room 152"]],
+   learn:[["Reading","Theme & summarizing across chapters"],["Math","Multi-digit multiplication; factors"],["Writing","Informational essay — research notes"],["Science","Energy: light & sound"]],
+   hw:[["Mon","Read assigned chapter; summarize in 3 sentences."],["Tue","Math: multi-digit multiplication set B."],["Wed","Gather 3 facts for research essay."],["Thu","Study vocab + multiplication."]],
+   reminders:["Essay outline due Friday","Bring earbuds for testing","Check binder organization weekly"]},
+ "5th Grade":{teachers:[["Mr. Anthony Ruiz","Room 160"],["Ms. Stephanie Long","Room 161"],["Ms. Carla Dixon","Room 162"]],
+   learn:[["Reading","Comparing themes across two texts"],["Math","Adding & subtracting fractions, unlike denominators"],["Writing","Argument essay with evidence"],["Science","Ecosystems & food webs"]],
+   hw:[["Mon","Read 25 min; note the theme."],["Tue","Fraction practice: unlike denominators."],["Wed","Draft argument essay intro."],["Thu","Study science vocab for quiz."]],
+   reminders:["Argument essay due next Tuesday","Science quiz Friday","Keep binder dividers organized"]},
+};
+const SPECIALS=["Mon · PE","Tue · Art","Wed · Library","Thu · Music","Fri · Counselor"];
+
+const gradeTabs=document.getElementById("grade-tabs");
+const teacherRow=document.getElementById("teacher-row");
+const newsEl=document.getElementById("news");
+const gNames=Object.keys(GRADES);
+let curGrade=gNames[1], curTeacher=0;
+
+gNames.forEach(g=>{const b=document.createElement("button");b.className="gtab";b.textContent=g;b.onclick=()=>{curGrade=g;curTeacher=0;renderTeachers();renderNews();[...gradeTabs.children].forEach(x=>x.classList.toggle("active",x.textContent===g));};gradeTabs.appendChild(b);});
+
+function renderTeachers(){
+  teacherRow.innerHTML="";
+  GRADES[curGrade].teachers.forEach(([nm,room],i)=>{
+    const c=document.createElement("button");c.className="tchip"+(i===curTeacher?" active":"");
+    c.innerHTML=`<span class="av" style="background:${colorFor(nm)}">${initials(nm)}</span><span><span class="tn">${nm}</span><span class="tr"> · ${room}</span></span>`;
+    c.onclick=()=>{curTeacher=i;renderTeachers();renderNews();};
+    teacherRow.appendChild(c);
+  });
+}
+function renderNews(){
+  const g=GRADES[curGrade];const [nm,room]=g.teachers[curTeacher];
+  newsEl.innerHTML=`
+    <div class="news-hd">
+      <div class="who">
+        <div class="av" style="background:${colorFor(nm)}">${initials(nm)}</div>
+        <div><h2>${nm}</h2><div class="sub">${curGrade} · ${room}</div></div>
+      </div>
+      <div class="wk"><div class="lbl">Week of</div><div class="val">${WEEK_OF}</div></div>
+    </div>
+    <div class="news-bd">
+      <div class="main">
+        <div class="block-title"><span class="ic">📚</span>This Week We're Learning</div>
+        <div class="learn">${g.learn.map(([s,d])=>`<div class="learn-row"><div class="subj">${s}</div><div class="desc">${d}</div></div>`).join("")}</div>
+        <div class="block-title"><span class="ic">📝</span>Homework</div>
+        <table class="hw"><thead><tr><th>Day</th><th>Assignment</th></tr></thead><tbody>
+        ${g.hw.map(([d,t])=>`<tr><td class="day">${d}</td><td>${t}</td></tr>`).join("")}
+        <tr><td class="day">Fri</td><td>No new homework — read for fun & rest up! 🌟</td></tr>
+        </tbody></table>
+      </div>
+      <div class="side">
+        <div class="card"><div class="block-title" style="font-size:17px"><span class="ic">📌</span>Reminders</div>
+          <ul class="reminders">${g.reminders.map(r=>`<li>${r}</li>`).join("")}</ul></div>
+        <div class="card"><div class="block-title" style="font-size:17px"><span class="ic">🎨</span>Specials Schedule</div>
+          <div class="specials">${SPECIALS.map(s=>{const[d,t]=s.split(" · ");return `<div><b>${d}</b>${t}</div>`;}).join("")}</div></div>
+        <div class="contact-box"><div style="font-weight:800;color:var(--navy);margin-bottom:4px">Questions? Email me:</div>
+          <a class="em" href="mailto:rileyc2@scsk12.org">rileyc2@scsk12.org</a>
+          <div style="font-size:12.5px;color:var(--muted);margin-top:6px">Replies within 24 hours on school days.</div></div>
+      </div>
+    </div>`;
+}
+gradeTabs.children[1].classList.add("active");
+renderTeachers();renderNews();
+</script>
+<script src="i18n.js"></script>
+</body>
+</html>

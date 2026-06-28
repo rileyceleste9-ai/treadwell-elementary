@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Staff Directory — Treadwell Elementary School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .dir-controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:28px;}
+  .dir-search{flex:1;min-width:220px;position:relative;}
+  .dir-search input{width:100%;border:1.5px solid var(--border-strong);border-radius:13px;padding:13px 16px 13px 44px;font-family:var(--body);font-size:15.5px;background:#fff;outline:none;}
+  .dir-search input:focus{border-color:var(--blue);}
+  .dir-search::before{content:"🔍";position:absolute;left:15px;top:50%;transform:translateY(-50%);font-size:15px;opacity:.6;}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;}
+  .filt{background:#fff;border:1.5px solid var(--border-strong);color:var(--navy);font-weight:700;font-size:13.5px;padding:9px 15px;border-radius:999px;cursor:pointer;transition:all .13s;}
+  .filt:hover{border-color:var(--gold);}
+  .filt.active{background:var(--gold);border-color:var(--gold);color:var(--navy);}
+  .dept{margin-bottom:38px;}
+  .dept h2{font-size:22px;display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:10px;border-bottom:2px solid var(--gold-soft);}
+  .dept h2 .count{font-family:var(--body);font-size:13px;font-weight:800;color:var(--gold-deep);background:var(--gold-soft);padding:3px 10px;border-radius:999px;}
+  .staff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  @media(max-width:980px){.staff-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:720px){.staff-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:460px){.staff-grid{grid-template-columns:1fr;}}
+  .staff{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 18px;text-align:center;box-shadow:var(--shadow-sm);transition:transform .14s,box-shadow .14s;}
+  .staff:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+  .staff .avatar{width:76px;height:76px;font-size:26px;margin:0 auto 14px;}
+  .staff .nm{font-family:var(--display);font-weight:600;font-size:17px;color:var(--navy);line-height:1.15;}
+  .staff .rl{font-size:13.5px;color:var(--muted);margin-top:3px;}
+  .staff .em{margin-top:12px;font-size:13px;font-weight:700;color:var(--blue);word-break:break-all;}
+  .no-results{text-align:center;color:var(--muted);padding:50px;font-size:17px;display:none;}
+  .dir-note{background:var(--blue-soft);border-radius:14px;padding:14px 18px;font-size:13.5px;color:var(--blue);margin-bottom:26px;}
+</style>
+</head>
+<body data-page="directory">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a> <span>›</span> Staff Directory</div>
+    <h1>Meet Our Staff</h1>
+    <p class="lede">The team behind <em>Onward and Upward.</em> Search by name or filter by department to find contact information.</p>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <div class="dir-note">📷 Photos are placeholders — drop in real staff portraits anytime. Emails follow the district format <strong>lastnamefi@scsk12.org</strong> (sample data shown).</div>
+    <div class="dir-controls">
+      <div class="dir-search"><input id="dir-search" type="text" placeholder="Search staff by name or role…" autocomplete="off"></div>
+      <div class="filters" id="dir-filters"></div>
+    </div>
+    <div id="dir-results"></div>
+    <div class="no-results" id="no-results">No staff match your search. Try a different name or department.</div>
+  </div>
+</section>
+
+<div id="site-footer-mount"></div>
+<script src="site.js"></script>
+<script src="chatbot.js"></script>
+<script>
+const PALETTE=["#16335c","#2a6cb0","#3f9a6d","#d9981f","#e3674f","#7b5ea7","#0f7a8c","#b8536b"];
+function colorFor(n){let s=0;for(const c of n)s+=c.charCodeAt(0);return PALETTE[s%PALETTE.length];}
+function initials(n){return n.replace(/[^A-Za-z ]/g,"").split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join("").toUpperCase();}
+function email(n){const p=n.replace(/(Dr|Mr|Mrs|Ms|Coach)\.?\s+/i,"").split(/\s+/);const last=p[p.length-1].toLowerCase();const fi=(p[0]||" ")[0].toLowerCase();return `${last}${fi}@scsk12.org`;}
+
+const STAFF=[
+  ["Administration",[["Jason Carr","Principal"],["Jameaka Black","Assistant Principal"],["Dr. Linda Campbell","Instructional Facilitator"],["Penny Cole","PLC Coach"]]],
+  ["Main Office",[["Patricia Owens","Office Manager"],["Yolanda Reed","Registrar / Attendance"],["James Carter","School Counselor Aide"]]],
+  ["Counseling & Behavioral",[["Tameka Johnson","School Counselor"],["David Nguyen","Behavioral Specialist"],["Sandra Pope","Social Worker"]]],
+  ["Specialists",[["Coach Terrell Banks","Physical Education"],["Maria Solis","Art"],["Gregory Dell","Music"],["Lauren Pace","Library Media"]]],
+  ["Pre-K",[["Nora Whitfield","Pre-K Teacher"],["Erica Mason","Pre-K Teacher"],["Denise Hart","Pre-K Assistant"]]],
+  ["Kindergarten",[["Brittany Cole","Kindergarten"],["Felicia Grant","Kindergarten"],["Hannah Lee","Kindergarten"]]],
+  ["1st Grade",[["Olivia Brooks","1st Grade"],["Samuel Reyes","1st Grade"],["Karen Tate","1st Grade"]]],
+  ["2nd Grade",[["Monica Flores","2nd Grade"],["Derrick Hale","2nd Grade"],["Ashley Kim","2nd Grade"]]],
+  ["3rd Grade",[["Vanessa Cross","3rd Grade"],["Brian Mosley","3rd Grade"],["Tina Powell","3rd Grade"]]],
+  ["4th Grade",[["Jerome Fields","4th Grade"],["Rachel Combs","4th Grade"],["Priya Nair","4th Grade"]]],
+  ["5th Grade",[["Anthony Ruiz","5th Grade"],["Stephanie Long","5th Grade"],["Carla Dixon","5th Grade"]]],
+  ["Dual Language",[["Lucía Ramírez","Dual Language Lead"],["Sofía Mendoza","Dual Language Teacher"]]],
+  ["Special Education & Support",[["Kimberly Adams","Special Education"],["Robert Pena","Resource Teacher"],["Gloria Sims","Support Class"]]],
+  ["ESL",[["Daniela Cruz","ESL Teacher"],["Omar Haddad","ESL Teacher"]]],
+  ["Educational Assistants",[["Wanda Pierce","Educational Assistant"],["Travis Hood","Educational Assistant"],["Maria Lopez","Educational Assistant"],["Ben Foster","Educational Assistant"]]],
+];
+
+const filterEl=document.getElementById("dir-filters");
+const resultsEl=document.getElementById("dir-results");
+const searchEl=document.getElementById("dir-search");
+const noEl=document.getElementById("no-results");
+let activeDept="All";
+
+const depts=["All",...STAFF.map(d=>d[0])];
+depts.forEach(d=>{const b=document.createElement("button");b.className="filt"+(d==="All"?" active":"");b.textContent=d;b.dataset.d=d;b.onclick=()=>{activeDept=d;[...filterEl.children].forEach(x=>x.classList.toggle("active",x.dataset.d===d));render();};filterEl.appendChild(b);});
+
+function render(){
+  const q=searchEl.value.trim().toLowerCase();
+  resultsEl.innerHTML="";let total=0;
+  STAFF.forEach(([dept,people])=>{
+    if(activeDept!=="All"&&activeDept!==dept)return;
+    const matched=people.filter(([nm,rl])=>!q||nm.toLowerCase().includes(q)||rl.toLowerCase().includes(q));
+    if(!matched.length)return;
+    total+=matched.length;
+    const sec=document.createElement("div");sec.className="dept";
+    sec.innerHTML=`<h2>${dept} <span class="count">${matched.length}</span></h2>
+      <div class="staff-grid">${matched.map(([nm,rl])=>`
+        <div class="staff">
+          <div class="avatar" style="background:${colorFor(nm)}">${initials(nm)}</div>
+          <div class="nm">${nm}</div>
+          <div class="rl">${rl}</div>
+          <a class="em" href="mailto:${email(nm)}">${email(nm)}</a>
+        </div>`).join("")}</div>`;
+    resultsEl.appendChild(sec);
+  });
+  noEl.style.display=total?"none":"block";
+}
+searchEl.addEventListener("input",render);
+render();
+</script>
+<script src="i18n.js"></script>
+</body>
+</html>

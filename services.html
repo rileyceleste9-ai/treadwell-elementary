@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services — Treadwell Elementary School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
+  .feature h2{font-size:clamp(24px,3vw,34px);color:var(--blue);}
+  .feature p{color:var(--muted);font-size:17px;margin-top:14px;}
+  .feature img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow-md);display:block;}
+  figure{margin:0;}
+  figure figcaption{font-size:13px;color:var(--faint);margin-top:8px;font-weight:700;}
+  @media(max-width:760px){.feature{grid-template-columns:1fr;gap:26px;}}
+
+  .pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+  .chip{background:var(--blue-soft);color:var(--blue);font-weight:800;font-size:13.5px;padding:7px 14px;border-radius:999px;}
+
+  .clue{background:var(--navy);color:#fff;border-radius:var(--radius-lg);padding:44px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;}
+  .clue h2{color:#fff;font-size:30px;}
+  .clue p{color:#d8d2d2;font-size:16.5px;margin-top:12px;}
+  .clue-acro{display:flex;flex-direction:column;gap:10px;}
+  .clue-acro .row{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px 16px;}
+  .clue-acro .lt{font-family:var(--display);font-weight:600;font-size:22px;color:var(--gold);width:30px;flex:none;text-align:center;}
+  .clue-acro .wd{font-size:15px;}
+  @media(max-width:680px){.clue{grid-template-columns:1fr;gap:26px;padding:28px;}}
+
+  .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media(max-width:820px){.res-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.res-grid{grid-template-columns:1fr;}}
+  .res{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm);transition:transform .14s,box-shadow .14s,border-color .14s;}
+  .res:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--gold);}
+  .res .ic{width:46px;height:46px;border-radius:12px;background:var(--blue-soft);display:flex;align-items:center;justify-content:center;font-size:23px;margin-bottom:14px;}
+  .res .rt{font-family:var(--display);font-weight:600;font-size:17px;color:var(--navy);}
+  .res .rd{color:var(--muted);font-size:14px;margin-top:6px;}
+  .res .go{color:var(--blue);font-weight:800;font-size:13.5px;margin-top:12px;display:inline-block;}
+</style>
+</head>
+<body data-page="parents">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a> <span>›</span> <a href="parents-students.html">Parents &amp; Students</a> <span>›</span> Services</div>
+    <h1>Student Services</h1>
+    <p class="lede">Treadwell connects every learner with the right support — English language services, gifted and talented enrichment, and a wealth of district family resources.</p>
+  </div>
+</section>
+
+<!-- ESL -->
+<section class="section tight">
+  <div class="wrap feature">
+    <div>
+      <div class="eyebrow">English as a Second Language</div>
+      <h2>ESL services for our multilingual learners</h2>
+      <p>Treadwell welcomes families from around the world. Our ESL program supports students whose first language is not English, helping them build the listening, speaking, reading, and writing skills they need to thrive across every subject.</p>
+      <p>Certified ESL teachers work alongside classroom teachers — through small groups and in-class support — so students grow their English while staying fully part of grade-level learning. Families receive translated communication and interpretation support for conferences and meetings whenever needed.</p>
+      <div class="pillrow">
+        <span class="chip">Small-group support</span>
+        <span class="chip">In-class co-teaching</span>
+        <span class="chip">Translated communication</span>
+        <span class="chip">Interpreter access</span>
+      </div>
+    </div>
+    <figure>
+      <img src="img-esl.png" alt="Treadwell multilingual learners working together">
+      <figcaption>Multilingual learners at Treadwell</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- C.L.U.E. -->
+<section class="section tight">
+  <div class="wrap">
+    <div class="clue">
+      <div>
+        <span class="tag tag-gold">🧠 Gifted &amp; Talented</span>
+        <h2 style="margin-top:14px">C.L.U.E. — Creative Learning in a Unique Environment</h2>
+        <p>C.L.U.E. is the Memphis-Shelby County Schools program for academically gifted students. Through enrichment and project-based challenges, C.L.U.E. stretches curious thinkers beyond the standard curriculum. Students are identified through a district screening and referral process — ask your child's teacher or our office how to begin a referral.</p>
+        <a class="btn btn-gold" style="margin-top:20px" href="https://www.scsk12.org" target="_blank" rel="noopener">Learn about C.L.U.E. at MSCS ↗</a>
+      </div>
+      <div class="clue-acro">
+        <div class="row"><span class="lt">C</span><span class="wd">Creative</span></div>
+        <div class="row"><span class="lt">L</span><span class="wd">Learning in a</span></div>
+        <div class="row"><span class="lt">U</span><span class="wd">Unique</span></div>
+        <div class="row"><span class="lt">E</span><span class="wd">Environment</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- District resources -->
+<section class="section tight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">District Resources</div>
+      <h2 class="section-title">Helpful links for families</h2>
+      <p>Quick connections to the Memphis-Shelby County Schools services families use most.</p>
+    </div>
+    <div class="res-grid">
+      <a class="res" href="https://scstn.powerschool.com/public/home.html" target="_blank" rel="noopener">
+        <div class="ic">🎓</div><div class="rt">PowerSchool</div><div class="rd">Check grades and attendance for your student.</div><span class="go">Open PowerSchool ↗</span></a>
+      <a class="res" href="https://www.scsk12.org/registration" target="_blank" rel="noopener">
+        <div class="ic" style="background:var(--gold-soft)">📝</div><div class="rt">Registration</div><div class="rd">Enroll a new student or update records.</div><span class="go">Register ↗</span></a>
+      <a class="res" href="https://www.scsk12.org/transportation" target="_blank" rel="noopener">
+        <div class="ic" style="background:var(--green-soft)">🚌</div><div class="rt">Transportation</div><div class="rd">Bus eligibility and route information.</div><span class="go">View routes ↗</span></a>
+      <a class="res" href="https://schools.mealviewer.com/results/shelby%20county" target="_blank" rel="noopener">
+        <div class="ic" style="background:var(--gold-soft)">🍎</div><div class="rt">Nutrition Services</div><div class="rd">Breakfast and lunch menus and allergens.</div><span class="go">See menus ↗</span></a>
+      <a class="res" href="https://www.scsk12.org/health" target="_blank" rel="noopener">
+        <div class="ic">❤️</div><div class="rt">Health Services</div><div class="rd">School health, immunizations, and wellness.</div><span class="go">Health info ↗</span></a>
+      <a class="res" href="https://www.scsk12.org/students-parents" target="_blank" rel="noopener">
+        <div class="ic" style="background:var(--green-soft)">👨‍👩‍👧</div><div class="rt">Students &amp; Parents</div><div class="rd">The full MSCS family resource center.</div><span class="go">Explore ↗</span></a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-mount"></div>
+<script src="site.js"></script>
+<script src="chatbot.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parents &amp; Students — Treadwell Elementary School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .ps-intro{max-width:720px;margin-bottom:34px;}
+  .ps-intro p{color:var(--muted);font-size:17px;}
+
+  /* ---------- Red accordion ---------- */
+  .acc{display:flex;flex-direction:column;gap:14px;}
+  .acc-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden;border-left:5px solid var(--blue);transition:box-shadow .15s;}
+  .acc-item.open{box-shadow:var(--shadow-md);}
+  .acc-head{width:100%;background:none;border:0;cursor:pointer;display:flex;align-items:center;gap:18px;padding:22px 26px;text-align:left;font-family:var(--body);transition:background .14s;}
+  .acc-head:hover{background:var(--gold-soft);}
+  .acc-item.open .acc-head{background:var(--gold-soft);}
+  .acc-ic{width:52px;height:52px;border-radius:14px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:25px;flex:none;}
+  .acc-tt{flex:1;}
+  .acc-tt .t{font-family:var(--display);font-weight:600;font-size:21px;color:var(--navy);line-height:1.1;}
+  .acc-tt .s{font-size:14px;color:var(--muted);margin-top:3px;}
+  .acc-chev{width:34px;height:34px;border-radius:50%;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:18px;flex:none;transition:transform .2s,background .14s;}
+  .acc-item.open .acc-chev{transform:rotate(180deg);background:var(--blue);color:#fff;}
+  .acc-panel{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .acc-body{padding:4px 26px 26px 96px;}
+  .acc-body p{color:var(--muted);font-size:16px;margin-bottom:18px;}
+  .acc-links{display:flex;flex-wrap:wrap;gap:12px;}
+  @media(max-width:560px){.acc-body{padding:4px 22px 24px 22px;}.acc-head{padding:18px;gap:14px;}}
+</style>
+</head>
+<body data-page="parents">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a> <span>›</span> Parents &amp; Students</div>
+    <h1>Parents &amp; Students</h1>
+    <p class="lede">Your hub for the programs, services, and resources that support every Treadwell learner — from Dual Language to Title I, supply lists, the library, and student wellness.</p>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <div class="ps-intro">
+      <div class="eyebrow">Explore by topic</div>
+      <h2 class="section-title">Everything families need, in one place</h2>
+      <p>Tap a topic to expand it. Each section links to the full details — and you can always ask the <strong>Ask Treadwell</strong> assistant for a quick answer.</p>
+    </div>
+
+    <div class="acc" id="acc">
+      <div class="acc-item open">
+        <button class="acc-head" aria-expanded="true">
+          <span class="acc-ic">🌎</span>
+          <span class="acc-tt"><span class="t">Dual Language</span><span class="s">West Tennessee's only K–5 Spanish-English immersion program</span></span>
+          <span class="acc-chev">⌄</span>
+        </button>
+        <div class="acc-panel">
+          <div class="acc-body">
+            <p>Treadwell's 90/10 Dual Language Immersion Program helps students grow as bilingual, biliterate learners beginning in kindergarten. Learn about the model, why it works, and how to apply through the MSCS Optional Program.</p>
+            <div class="acc-links">
+              <a class="btn btn-primary" href="dual-language.html">Dual Language program →</a>
+              <a class="btn btn-ghost" href="https://www.scsk12.org/optional/" target="_blank" rel="noopener">Apply at scsk12.org/optional ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">
+          <span class="acc-ic">🤝</span>
+          <span class="acc-tt"><span class="t">Services</span><span class="s">ESL, C.L.U.E. gifted services, and district resources</span></span>
+          <span class="acc-chev">⌄</span>
+        </button>
+        <div class="acc-panel">
+          <div class="acc-body">
+            <p>From English as a Second Language (ESL) support to C.L.U.E. gifted services, Treadwell connects every learner with the right help. Find program details and quick links to district family resources.</p>
+            <div class="acc-links">
+              <a class="btn btn-primary" href="services.html">Student services →</a>
+              <a class="btn btn-ghost" href="https://www.scsk12.org/students-parents" target="_blank" rel="noopener">District resources ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">
+          <span class="acc-ic">📋</span>
+          <span class="acc-tt"><span class="t">Title I Content</span><span class="s">Family engagement, compacts, improvement plans &amp; your rights</span></span>
+          <span class="acc-chev">⌄</span>
+        </button>
+        <div class="acc-panel">
+          <div class="acc-body">
+            <p>As a schoolwide Title I school, Treadwell partners with families through our PLC, the School-Parent Compact, the School Improvement Plan, Parents' Right to Know, surveys, and more. See dates, documents, and how to get involved.</p>
+            <div class="acc-links">
+              <a class="btn btn-primary" href="title-i.html">Title I content →</a>
+              <a class="btn btn-ghost" href="family-engagement.html">Family Engagement Plan →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">
+          <span class="acc-ic">✏️</span>
+          <span class="acc-tt"><span class="t">Supply Lists</span><span class="s">Grade-by-grade lists to start the year ready</span></span>
+          <span class="acc-chev">⌄</span>
+        </button>
+        <div class="acc-panel">
+          <div class="acc-body">
+            <p>Find the 2025–2026 school supply list for your child's grade, Pre-K through 5th. Please label personal items with your child's name.</p>
+            <div class="acc-links">
+              <a class="btn btn-primary" href="supply-list.html">Supply lists by grade →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">
+          <span class="acc-ic">📚</span>
+          <span class="acc-tt"><span class="t">Library Services</span><span class="s">Our media center, weekly checkout &amp; reading at home</span></span>
+          <span class="acc-chev">⌄</span>
+        </button>
+        <div class="acc-panel">
+          <div class="acc-body">
+            <p>The Treadwell library media center is the heart of our reading community. Students visit weekly to check out books, build research skills, and discover new favorites. Grades 3–5 books are due each Monday — please help your child keep them safe at home and return them on time.</p>
+            <div class="acc-links">
+              <a class="btn btn-primary" href="directory.html">Contact our Library Media specialist →</a>
+              <a class="btn btn-ghost" href="https://www.scsk12.org" target="_blank" rel="noopener">MSCS Libraries ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">
+          <span class="acc-ic">❤️</span>
+          <span class="acc-tt"><span class="t">Health &amp; Wellness</span><span class="s">School nurse, immunizations &amp; student well-being</span></span>
+          <span class="acc-chev">⌄</span>
+        </button>
+        <div class="acc-panel">
+          <div class="acc-body">
+            <p>Our school nurse supports students who feel unwell, manage medications, and meet Tennessee immunization requirements. Please keep your child's emergency contacts and health forms up to date through the front office, and reach out anytime with a health concern.</p>
+            <div class="acc-links">
+              <a class="btn btn-primary" href="tel:9014166130">📞 Call the school nurse</a>
+              <a class="btn btn-ghost" href="https://www.scsk12.org/health" target="_blank" rel="noopener">District Health Services ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-mount"></div>
+<script src="site.js"></script>
+<script src="chatbot.js"></script>
+<script>
+(function () {
+  const items = [...document.querySelectorAll("#acc .acc-item")];
+  function setOpen(item, open) {
+    item.classList.toggle("open", open);
+    const head = item.querySelector(".acc-head");
+    const panel = item.querySelector(".acc-panel");
+    head.setAttribute("aria-expanded", open);
+    panel.style.maxHeight = open ? panel.scrollHeight + "px" : "0px";
+  }
+  items.forEach((item) => {
+    const head = item.querySelector(".acc-head");
+    head.addEventListener("click", () => {
+      const isOpen = item.classList.contains("open");
+      items.forEach((it) => setOpen(it, it === item && !isOpen));
+    });
+  });
+  // open the default item to its full height after layout
+  const first = document.querySelector("#acc .acc-item.open");
+  if (first) setOpen(first, true);
+  window.addEventListener("resize", () => {
+    const open = document.querySelector("#acc .acc-item.open");
+    if (open) open.querySelector(".acc-panel").style.maxHeight = open.querySelector(".acc-panel").scrollHeight + "px";
+  });
+})();
+</script>
+<script src="i18n.js"></script>
+</body>
+</html>

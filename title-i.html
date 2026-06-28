@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Title I Content — Treadwell Elementary School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .intro-card{background:linear-gradient(150deg,var(--gold-soft),#fff);border:1px solid var(--border);border-radius:var(--radius-lg);padding:34px 38px;}
+  .intro-card p{font-size:18px;color:var(--ink);line-height:1.65;}
+  .intro-card p strong{color:var(--blue);}
+
+  /* meeting + coach band */
+  .band{display:grid;grid-template-columns:1.3fr 1fr;gap:22px;margin-top:28px;}
+  @media(max-width:760px){.band{grid-template-columns:1fr;}}
+  .meeting{background:var(--navy);color:#fff;border-radius:var(--radius-lg);padding:34px;position:relative;overflow:hidden;}
+  .meeting::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,.3),transparent 65%);}
+  .meeting h2{color:#fff;font-size:26px;margin-top:14px;position:relative;}
+  .meeting .date{font-family:var(--display);font-weight:600;font-size:30px;color:var(--gold);margin-top:10px;position:relative;}
+  .meeting p{color:#d8d2d2;font-size:15.5px;margin-top:12px;position:relative;}
+  .sessions{display:flex;gap:12px;margin-top:18px;position:relative;flex-wrap:wrap;}
+  .sess{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:12px 18px;}
+  .sess .ti{font-family:var(--display);font-weight:600;font-size:22px;color:#fff;line-height:1;}
+  .sess .lb{font-size:12.5px;color:#bdb6b6;margin-top:4px;font-weight:700;}
+  .coach{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:30px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;}
+  .coach .avatar{width:64px;height:64px;font-size:22px;background:var(--blue);margin-bottom:16px;}
+  .coach .role{font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);}
+  .coach .nm{font-family:var(--display);font-weight:600;font-size:23px;color:var(--navy);margin-top:4px;}
+  .coach p{color:var(--muted);font-size:15px;margin-top:10px;}
+  .coach a.em{margin-top:auto;padding-top:16px;font-weight:800;color:var(--blue);word-break:break-all;}
+
+  .ti-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:720px){.ti-grid{grid-template-columns:1fr;}}
+  .ti-card{display:flex;gap:18px;background:var(--surface);border:1px solid var(--border);border-left:5px solid var(--blue);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);transition:transform .14s,box-shadow .14s;}
+  .ti-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+  .ti-card .ic{width:48px;height:48px;border-radius:12px;background:var(--blue-soft);display:flex;align-items:center;justify-content:center;font-size:23px;flex:none;}
+  .ti-card .tt{font-family:var(--display);font-weight:600;font-size:18px;color:var(--navy);}
+  .ti-card .ds{color:var(--muted);font-size:14.5px;margin-top:6px;line-height:1.55;}
+  .ti-card .go{color:var(--blue);font-weight:800;font-size:13.5px;margin-top:12px;display:inline-block;}
+</style>
+</head>
+<body data-page="parents">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a> <span>›</span> <a href="parents-students.html">Parents &amp; Students</a> <span>›</span> Title I Content</div>
+    <h1>Title I Content</h1>
+    <p class="lede">Treadwell International Community School is a schoolwide Title I school. We partner with families through our Professional Learning Community (PLC) to raise achievement for every student.</p>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <div class="intro-card">
+      <p>As a <strong>Title I school</strong>, Treadwell International Community School receives federal funding to strengthen teaching and learning — and the law guarantees families a voice in how that happens. <strong>Your involvement matters.</strong> Below you'll find our annual meeting, key documents, and the people who can help you get connected.</p>
+    </div>
+
+    <div class="band">
+      <div class="meeting">
+        <span class="tag tag-gold">📣 You're invited</span>
+        <h2>Annual Title I Meeting</h2>
+        <div class="date">August 19, 2025</div>
+        <p>Learn about Title I program requirements, the school's participation, and your rights as a parent. Two sessions are offered for your convenience — attend whichever fits your day.</p>
+        <div class="sessions">
+          <div class="sess"><div class="ti">9:00 AM</div><div class="lb">Morning session</div></div>
+          <div class="sess"><div class="ti">4:00 PM</div><div class="lb">Afternoon session</div></div>
+        </div>
+      </div>
+      <div class="coach">
+        <div class="avatar">PC</div>
+        <div class="role">PLC Coach</div>
+        <div class="nm">Penny Cole</div>
+        <p>Have questions about Title I, family engagement, or how to get involved? Our PLC Coach is here to help connect you with the right resources.</p>
+        <a class="em" href="mailto:colep@scsk12.org">colep@scsk12.org</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Documents &amp; Information</div>
+      <h2 class="section-title">Title I resources for families</h2>
+      <p>Everything from our family engagement plan to your right to know about teacher qualifications.</p>
+    </div>
+    <div class="ti-grid">
+      <a class="ti-card" href="family-engagement.html">
+        <span class="ic">🤝</span>
+        <span><span class="tt">Family Engagement Plan</span><span class="ds">Jointly developed with parents to set expectations for involvement and partnership at Treadwell.</span><span class="go">Read the plan →</span></span>
+      </a>
+      <div class="ti-card">
+        <span class="ic" style="background:var(--gold-soft)">📜</span>
+        <span><span class="tt">School-Parent Compact</span><span class="ds">How students, families, teachers, and the principal share responsibility for student achievement.</span><span class="go">Available at the front office &amp; annual meeting</span></span>
+      </div>
+      <div class="ti-card">
+        <span class="ic" style="background:var(--green-soft)">📈</span>
+        <span><span class="tt">School Improvement Plan</span><span class="ds">Our schoolwide plan and goals for raising achievement, reviewed with families each year.</span><span class="go">Reviewed at the annual meeting</span></span>
+      </div>
+      <div class="ti-card">
+        <span class="ic">🔎</span>
+        <span><span class="tt">Parents' Right to Know</span><span class="ds">Your right to request the professional qualifications of your child's teachers and paraprofessionals.</span><span class="go">Request through the main office</span></span>
+      </div>
+      <div class="ti-card">
+        <span class="ic" style="background:var(--gold-soft)">🗳️</span>
+        <span><span class="tt">Surveys</span><span class="ds">Family surveys shape our parent meetings, workshops, and improvement priorities. Your feedback counts.</span><span class="go">Watch for our annual survey</span></span>
+      </div>
+      <div class="ti-card">
+        <span class="ic" style="background:var(--green-soft)">✉️</span>
+        <span><span class="tt">CSI Parent Letter</span><span class="ds">Comprehensive Support &amp; Improvement notice for families, explaining our status and support plan.</span><span class="go">Distributed to all families</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-mount"></div>
+<script src="site.js"></script>
+<script src="chatbot.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>

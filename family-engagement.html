@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Family Engagement — Treadwell Elementary School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .intro-card{background:linear-gradient(150deg,var(--gold-soft),#fff);border:1px solid var(--border);border-radius:var(--radius-lg);padding:34px 38px;}
+  .intro-card p{font-size:18px;color:var(--ink);line-height:1.65;}
+  .intro-card p strong{color:var(--blue);}
+  .block-title{font-size:clamp(22px,2.6vw,30px);color:var(--blue);}
+  .lead-sub{color:var(--muted);font-size:17px;margin:10px 0 24px;}
+  .checklist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:760px){.checklist{grid-template-columns:1fr;}}
+  .checklist li{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow-sm);font-size:15.5px;color:var(--ink);line-height:1.55;}
+  .checklist li::before{content:"✓";color:#fff;background:var(--blue);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;font-size:14px;font-weight:900;margin-top:2px;}
+  .essa{display:flex;flex-direction:column;gap:14px;counter-reset:essa;}
+  .essa li{display:flex;gap:18px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow-sm);list-style:none;}
+  .essa li::before{counter-increment:essa;content:counter(essa);flex:none;width:38px;height:38px;border-radius:10px;background:var(--navy);color:#fff;font-family:var(--display);font-weight:600;font-size:18px;display:flex;align-items:center;justify-content:center;}
+  .essa li p{font-size:15.5px;color:var(--ink);line-height:1.6;margin:0;}
+  .revised{color:var(--faint);font-size:14px;font-style:italic;margin-top:26px;}
+</style>
+</head>
+<body data-page="parents">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a> <span>›</span> <a href="parents-students.html">Parents &amp; Students</a> <span>›</span> Title I Content <span>›</span> Family Engagement</div>
+    <h1>Family Engagement Plan</h1>
+    <p class="lede">Jointly developed with parents to establish the expectations for parental involvement at Treadwell.</p>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <div class="intro-card">
+      <p><em>Treadwell Elementary School believes that all parents should be encouraged to communicate, participate, and complement the instructional efforts of the teachers.</em> <strong>This Parental Engagement Plan was jointly developed with parents to establish the expectations for parental involvement.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <h2 class="block-title">Our Expectations for Parental Involvement</h2>
+    <p class="lead-sub">Treadwell Elementary School encourages parental involvement through the following strategies:</p>
+    <ul class="checklist">
+      <li>Parents with specific talents are asked to act as resource persons to complement and extend the instructional program through volunteer services.</li>
+      <li>Parents are provided surveys and other information-gathering instruments to express their ideas and concerns.</li>
+      <li>Parents are encouraged to join and be actively involved in the Parent-Teacher Organization and Parents' Patrol.</li>
+      <li>Parents are encouraged to attend and serve on the school-based Leadership Council.</li>
+      <li>Parents are provided a Family Instructional Resource Center and Parents' Library in the school, which provides instructional materials for help at home.</li>
+      <li>Parents are provided a Parents' Center in the school to meet and attend training sessions.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <h2 class="block-title">ESSA Involvement</h2>
+    <p class="lead-sub">The following parental involvement activities at Treadwell Elementary School comply with guidelines required in ESSA:</p>
+    <ol class="essa">
+      <li><p>Parents are invited to an annual meeting held during and after school to inform parents about the Title I program requirements, school participation in Title I, and parental rights to be involved. Parents are surveyed for information on topics and types of future parent meetings. Parents are also provided with a question-and-answer period for discussion and an evaluation form for suggestions during each meeting.</p></li>
+      <li><p>Opportunities for informational meetings and/or instructional workshops are regularly held monthly during and after school to provide hands-on experiences in the instructional process. Information on Treadwell's Schoolwide Title I Program, Parents' Right To Know, and timely information about parent involvement programs is also included in all meetings.</p></li>
+      <li><p>The Parent/Student/Teacher/School Compact outlines how students, teachers, parents, and the principal share responsibility for improved student achievement, and was jointly developed with parents and community stakeholders.</p></li>
+      <li><p>The Professional School Counselor conducts parent workshops and involvement activities to increase parental awareness and acceptance of their roles and responsibilities in the education of their children.</p></li>
+      <li><p>Parents serve as resource persons by sharing their expertise as it relates to grade-level units of study. Parents also serve as volunteers by reading to students, helping the classroom teacher, communicating to other parents, and supervising field trips.</p></li>
+      <li><p>Parents visit the classrooms and attend after-school extra-curricular activities.</p></li>
+      <li><p>To communicate and keep parents informed in a timely manner, Treadwell Elementary conducts a Meet and Greet for parents (handbooks, Compact, policies), Family Reading Night, Parent-Teacher Conference Days, a school message board, holiday and special interest programs, a monthly school calendar and activities, letters, flyers, newsletters, and weekly progress report notices to describe and explain the curriculum, forms of assessment, and proficiency levels students are expected to meet.</p></li>
+    </ol>
+    <p class="revised">Revised: February 2026</p>
+  </div>
+</section>
+
+<div id="site-footer-mount"></div>
+<script src="site.js"></script>
+<script src="chatbot.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>

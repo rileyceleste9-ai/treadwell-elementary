@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supply Lists — Treadwell Elementary School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .grade-tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:30px;}
+  .gtab{background:var(--surface);border:1.5px solid var(--border-strong);color:var(--navy);font-family:var(--display);font-weight:600;font-size:15px;
+    padding:10px 18px;border-radius:12px;cursor:pointer;transition:all .14s;}
+  .gtab:hover{border-color:var(--gold);}
+  .gtab.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:var(--shadow-sm);}
+  .supply-card{padding:0;overflow:hidden;}
+  .sc-head{padding:24px 30px;background:linear-gradient(150deg,var(--navy),var(--navy-deep));color:#fff;display:flex;align-items:center;gap:18px;}
+  .sc-head .badge{width:60px;height:60px;border-radius:16px;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:22px;flex:none;text-align:center;line-height:1;}
+  .sc-head h2{color:#fff;font-size:26px;}
+  .sc-head p{color:#bcd2ee;font-size:14px;margin-top:3px;}
+  .sc-body{padding:28px 30px;}
+  .supply-cols{columns:2;column-gap:40px;}
+  @media(max-width:640px){.supply-cols{columns:1;}}
+  .supply-cols li{break-inside:avoid;display:flex;gap:11px;align-items:flex-start;font-size:15.5px;margin-bottom:11px;list-style:none;}
+  .supply-cols li::before{content:"";width:18px;height:18px;border:2px solid var(--border-strong);border-radius:5px;flex:none;margin-top:3px;}
+  .supply-cols ul{padding:0;margin:0;}
+  .supply-cols .qty{font-weight:800;color:var(--navy);}
+  .note{background:var(--gold-soft);border-radius:14px;padding:16px 20px;font-size:14.5px;color:var(--gold-deep);margin-top:24px;display:flex;gap:12px;align-items:flex-start;}
+  .note b{color:var(--gold-deep);}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
+  @media print{.site-header,.topbar,.site-footer,.cbot-fab,.cbot-panel,.grade-tabs,.actions,.page-hero .lede{display:none!important;}
+    .supply-card{box-shadow:none;border:1px solid #ccc;}body{background:#fff;}}
+</style>
+</head>
+<body data-page="parents">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a> <span>›</span> <a href="parents-students.html">Parents &amp; Students</a> <span>›</span> Supply Lists</div>
+    <h1>2025–2026 School Supply Lists</h1>
+    <p class="lede">Everything your child needs to start the year ready. Pick a grade below — please label personal items with your child's name.</p>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <div class="grade-tabs" id="grade-tabs"></div>
+    <div class="card supply-card" id="supply-card"></div>
+    <div class="actions">
+      <button class="btn btn-gold" onclick="window.print()">🖨️ Print this list</button>
+      <a class="btn btn-ghost" href="this-week.html">Back to this week →</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-mount"></div>
+<script src="site.js"></script>
+<script src="chatbot.js"></script>
+<script>
+const GRADES = {
+  "Pre-K": {color:"#7b5ea7", note:"All Pre-K items stay at school. A complete change of clothes (labeled, in a zip bag) is required.", items:[
+    ["2","boxes of facial tissue"],["1","pack baby wipes"],["1","container disinfecting wipes"],["2","glue sticks"],["1","pack washable markers"],
+    ["1","box gallon zip bags"],["1","standard rest mat"],["1","change of clothes (labeled)"],["1","family photo for our class wall"],["1","backpack (no wheels)"]]},
+  "Kindergarten": {color:"#2a6cb0", note:"Please send a small backpack large enough to hold a folder — no wheels, please.", items:[
+    ["24","#2 pencils, sharpened"],["8","glue sticks"],["1","pack of crayons (24 ct)"],["2","pink erasers"],["1","pair blunt-tip scissors"],
+    ["2","plastic folders with pockets"],["1","primary composition notebook"],["2","boxes facial tissue"],["1","container disinfecting wipes"],["1","headphones (not earbuds)"]]},
+  "1st Grade": {color:"#3f9a6d", note:"Replenish pencils and glue sticks mid-year as needed — we go through a lot!", items:[
+    ["36","#2 pencils, sharpened"],["10","glue sticks"],["2","packs crayons (24 ct)"],["4","wide-ruled composition notebooks"],["3","plastic folders with pockets"],
+    ["1","pair scissors"],["1","pack pink erasers"],["1","pencil box"],["2","boxes facial tissue"],["1","pair headphones"]]},
+  "2nd Grade": {color:"#d9981f", note:"Mark folders and notebooks by subject color if possible (red = reading, blue = math).", items:[
+    ["36","#2 pencils"],["4","wide-ruled composition notebooks"],["4","plastic folders with pockets"],["2","packs crayons or colored pencils"],["6","glue sticks"],
+    ["2","highlighters"],["1","pair scissors"],["1","pencil pouch"],["2","containers disinfecting wipes"],["1","pair headphones"]]},
+  "3rd Grade": {color:"#e3674f", note:"Students begin using a planner daily — please check and initial it each evening.", items:[
+    ["36","#2 pencils"],["5","wide-ruled composition notebooks"],["1","pack loose-leaf paper"],["4","two-pocket folders"],["1","pack colored pencils"],
+    ["4","highlighters"],["6","glue sticks"],["1","pair scissors"],["1","pencil pouch"],["1","pair headphones"]]},
+  "4th Grade": {color:"#2a6cb0", note:"A handheld pencil sharpener with a lid is very helpful for this grade.", items:[
+    ["36","#2 pencils"],["5","composition notebooks"],["2","packs loose-leaf paper"],["5","two-pocket folders"],["1","pack colored pencils"],
+    ["4","dry-erase markers"],["4","highlighters"],["1","pair scissors"],["1","12-inch ruler"],["1","pair earbuds/headphones"]]},
+  "5th Grade": {color:"#16335c", note:"5th graders are expected to keep an organized binder — a 1.5\" binder with dividers is recommended.", items:[
+    ["48","#2 pencils"],["1","1.5\" three-ring binder"],["1","pack tab dividers"],["3","packs loose-leaf paper"],["5","composition notebooks"],
+    ["1","pack colored pencils"],["4","dry-erase markers"],["4","highlighters"],["1","scientific-friendly ruler"],["1","pair earbuds/headphones"]]},
+};
+const tabsEl = document.getElementById("grade-tabs");
+const cardEl = document.getElementById("supply-card");
+const names = Object.keys(GRADES);
+function shortBadge(name){return name==="Pre-K"?"Pre<br>K":name==="Kindergarten"?"K":name.replace(/(st|nd|rd|th) Grade/,"").trim();}
+function render(name){
+  const g = GRADES[name];
+  cardEl.innerHTML = `
+    <div class="sc-head">
+      <div class="badge" style="background:${g.color};color:#fff">${shortBadge(name)}</div>
+      <div><h2>${name} Supply List</h2><p>2025–2026 School Year · Treadwell Elementary</p></div>
+    </div>
+    <div class="sc-body">
+      <ul class="supply-cols">${g.items.map(([q,t])=>`<li><span><span class="qty">${q}</span> &nbsp;${t}</span></li>`).join("")}</ul>
+      <div class="note">💡 <div><b>Teacher note:</b> ${g.note}</div></div>
+    </div>`;
+  [...tabsEl.children].forEach(b=>b.classList.toggle("active",b.dataset.g===name));
+}
+names.forEach(n=>{
+  const b=document.createElement("button");
+  b.className="gtab";b.dataset.g=n;b.textContent=n;
+  b.addEventListener("click",()=>render(n));
+  tabsEl.appendChild(b);
+});
+render(names[0]);
+</script>
+<script src="i18n.js"></script>
+</body>
+</html>

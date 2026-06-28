@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calendar — Treadwell Elementary School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .cal-top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px;}
+  .cal-nav{display:flex;align-items:center;gap:14px;}
+  .cal-nav h2{font-size:30px;min-width:230px;text-align:center;}
+  .navbtn{width:46px;height:46px;border-radius:12px;border:1.5px solid var(--border-strong);background:#fff;font-size:20px;color:var(--navy);cursor:pointer;transition:all .13s;}
+  .navbtn:hover{border-color:var(--gold);background:var(--gold-soft);}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;}
+  .legend span{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--muted);}
+  .legend i{width:12px;height:12px;border-radius:4px;display:inline-block;}
+  .cal{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);}
+  .dow-row{display:grid;grid-template-columns:repeat(7,1fr);background:var(--navy);}
+  .dow-row div{padding:13px 0;text-align:center;color:#cfe0f5;font-family:var(--display);font-weight:500;font-size:14px;letter-spacing:.04em;}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);}
+  .cell{min-height:118px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:8px 9px;display:flex;flex-direction:column;gap:5px;position:relative;}
+  .cell:nth-child(7n){border-right:0;}
+  .cell.out{background:#faf8f3;}
+  .cell .dnum{font-weight:800;font-size:14px;color:var(--ink);}
+  .cell.out .dnum{color:var(--faint);}
+  .cell.today .dnum{background:var(--gold);color:var(--navy);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+  .pill{font-size:11.5px;font-weight:700;padding:3px 7px;border-radius:7px;line-height:1.25;cursor:default;}
+  .pill.holiday{background:#c8102e;color:#fff;}
+  .pill.event{background:#f0eae7;color:#3a3a3a;}
+  .pill.early{background:#1a1a1a;color:#fff;}
+  .pill.spirit{background:#fce4e7;color:#c8102e;}
+  @media(max-width:760px){.cell{min-height:88px;padding:6px 5px;}.pill{font-size:10px;}.dow-row div{font-size:11px;}.cell .dnum{font-size:12px;}}
+  .month-events{margin-top:30px;}
+  .me-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media(max-width:680px){.me-list{grid-template-columns:1fr;}}
+  .me-row{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:13px 16px;}
+  .me-row .d{flex:none;width:54px;text-align:center;}
+  .me-row .d .mo{font-size:11px;font-weight:800;text-transform:uppercase;color:var(--gold-deep);}
+  .me-row .d .dd{font-family:var(--display);font-weight:600;font-size:22px;color:var(--navy);line-height:1;}
+  .me-row .info b{font-size:15px;color:var(--ink);}
+  .me-row .info span{display:block;font-size:13px;color:var(--muted);}
+</style>
+</head>
+<body data-page="calendar">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a> <span>›</span> Calendar</div>
+    <h1>School Calendar</h1>
+    <p class="lede">Holidays, half-days, and school events at a glance. For the official district calendar, visit the MSCS site.</p>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <div class="cal-top">
+      <div class="cal-nav">
+        <button class="navbtn" id="prev" aria-label="Previous month">‹</button>
+        <h2 id="cal-title">Month</h2>
+        <button class="navbtn" id="next" aria-label="Next month">›</button>
+      </div>
+      <div class="legend">
+        <span><i style="background:#c8102e"></i>Holiday / No school</span>
+        <span><i style="background:#1a1a1a"></i>Early dismissal</span>
+        <span><i style="background:#b8aca7"></i>Event</span>
+        <span><i style="background:#f4a9b4"></i>Spirit / PTO</span>
+      </div>
+    </div>
+    <div class="cal">
+      <div class="dow-row"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div>
+      <div class="cal-grid" id="cal-grid"></div>
+    </div>
+
+    <div class="month-events">
+      <h3 style="font-size:20px;margin-bottom:16px" id="me-title">Events this month</h3>
+      <div class="me-list" id="me-list"></div>
+    </div>
+
+    <div style="margin-top:26px"><a class="btn btn-ghost" href="https://www.scsk12.org/calendar" target="_blank" rel="noopener">Official district calendar ↗</a></div>
+  </div>
+</section>
+
+<div id="site-footer-mount"></div>
+<script src="site.js"></script>
+<script src="chatbot.js"></script>
+<script>
+// Events keyed "YYYY-M-D" (month 0-indexed). type: holiday|early|event|spirit
+const EVENTS={
+  "2025-7-3":[["event","Open House · 4–6 PM"]],
+  "2025-7-1":[["event","Teacher Prep Week"]],
+  "2025-7-4":[["holiday","First Day of School"]],
+  "2025-7-15":[["spirit","Spirit Day — Blue & Gold"]],
+  "2025-7-18":[["event","Picture Day"]],
+  "2025-7-20":[["early","Early Dismissal · 11:30"]],
+  "2025-7-22":[["spirit","PTO Popsicle Social"]],
+  "2025-7-29":[["event","Title I Family Night"]],
+  "2025-8-1":[["holiday","Labor Day"]],
+  "2025-8-12":[["event","Fall Pictures Retake"]],
+  "2025-8-17":[["early","Early Dismissal · 11:30"]],
+  "2025-8-17b":[["event","Parent-Teacher Conferences 4–7"]],
+  "2025-8-19":[["event","Book Fair Begins"]],
+  "2025-8-26":[["spirit","Spirit Day — Wear Owl Gear"]],
+  "2025-9-10":[["event","Fall Festival 5–7 PM"]],
+  "2025-9-13":[["holiday","Fall Break — No School"]],
+  "2025-9-14":[["holiday","Fall Break — No School"]],
+  "2025-9-31":[["spirit","Storybook Character Day"]],
+};
+// Fix conference same-day: merge into 2025-8-17
+EVENTS["2025-8-17"].push(["event","Parent-Teacher Conferences 4–7"]);
+delete EVENTS["2025-8-17b"];
+
+const MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
+const MABBR=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+let cur=new Date(2025,7,1); // August 2025
+const today=new Date();
+
+const grid=document.getElementById("cal-grid");
+const title=document.getElementById("cal-title");
+const meList=document.getElementById("me-list");
+const meTitle=document.getElementById("me-title");
+
+function evFor(y,m,d){return EVENTS[`${y}-${m}-${d}`]||[];}
+function build(){
+  const y=cur.getFullYear(),m=cur.getMonth();
+  title.textContent=`${MONTHS[m]} ${y}`;
+  grid.innerHTML="";
+  const first=new Date(y,m,1).getDay();
+  const days=new Date(y,m+1,0).getDate();
+  const prevDays=new Date(y,m,0).getDate();
+  for(let i=first-1;i>=0;i--)grid.appendChild(cell(prevDays-i,true));
+  for(let d=1;d<=days;d++){
+    const isToday=today.getFullYear()===y&&today.getMonth()===m&&today.getDate()===d;
+    grid.appendChild(cell(d,false,evFor(y,m,d),isToday));
+  }
+  const tot=first+days;const trail=(7-(tot%7))%7;
+  for(let d=1;d<=trail;d++)grid.appendChild(cell(d,true));
+  // month event list
+  const items=[];
+  for(let d=1;d<=days;d++)evFor(y,m,d).forEach(([t,l])=>items.push([d,t,l]));
+  meTitle.textContent=`Events in ${MONTHS[m]} ${y}`;
+  meList.innerHTML=items.length?items.map(([d,t,l])=>`
+    <div class="me-row"><div class="d"><div class="mo">${MABBR[m]}</div><div class="dd">${d}</div></div>
+    <div class="info"><b>${l}</b><span>${({holiday:"No school",early:"Early dismissal",event:"School event",spirit:"Spirit / PTO"})[t]}</span></div></div>`).join("")
+    :`<p class="muted">No events scheduled this month.</p>`;
+}
+function cell(d,out,evs=[],today=false){
+  const c=document.createElement("div");
+  c.className="cell"+(out?" out":"")+(today?" today":"");
+  c.innerHTML=`<div class="dnum">${d}</div>`+evs.map(([t,l])=>`<div class="pill ${t}">${l}</div>`).join("");
+  return c;
+}
+document.getElementById("prev").onclick=()=>{cur=new Date(cur.getFullYear(),cur.getMonth()-1,1);build();};
+document.getElementById("next").onclick=()=>{cur=new Date(cur.getFullYear(),cur.getMonth()+1,1);build();};
+build();
+</script>
+<script src="i18n.js"></script>
+</body>
+</html>
